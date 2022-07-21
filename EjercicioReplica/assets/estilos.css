@@ -1,0 +1,57 @@
+.color-prim {
+    color: #0F3C73;
+}
+
+.color-sec {
+    color: #FF6600;
+}
+
+.borde-form {
+    border-width: 8px;
+    border-style: solid;
+    border-color: rgb(230, 230, 230);
+}
+
+.check {
+    accent-color: #FF6600;
+}
+
+.btn-prim {
+    color: #FFF;
+    background-color: #FF6600;
+    border-color: #FF6600;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 8px;
+}
+
+.btn-prim:hover {
+    color: #FFF;
+    background-color: #e75d00;
+    border-color: #e75d00;
+}
+
+.btn-sec {
+    color: #0F3C73;
+    background-color: #FFF;
+    border-color: #0F3C73;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 8px;
+}
+
+.btn-sec:hover {
+    color: #FFF;
+    background-color: #0F3C73;
+}
+
+.btn-contrasena {
+    position: relative;
+    background-image: url(oculta.png);
+    background-size: 70% 70%;
+    width: 15%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-color: lightgray;
+    border-left-width: 0px;
+}

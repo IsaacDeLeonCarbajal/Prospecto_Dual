@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réplica</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/estilos.css">
+</head>
+
+<body>
+    <div class="col-12 vh-100 d-flex flex-column p-5">
+        <h1 class="col-12 fw-bold ps-3 color-prim">Editar Usuario</h1>
+
+        <div class="col-12 flex-grow-1 mt-3 py-3 px-5 borde-form">
+            <div class="col-12">
+                <div class="col-12">
+                    <h3 class="fw-normal color-sec">Datos personales</h3>
+
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 fs-5 fw-normal mt-3">
+                        <div class="col mb-4">
+                            <label class="color-prim mb-1">Nombres(s)<span class="color-sec">*</span></label>
+                            <input class="form-control" type="text" name="nombre" placeholder="Cesar Manuel">
+                        </div>
+
+                        <div class="col mb-4">
+                            <label class="color-prim mb-1">Apellido Paterno<span class="color-sec">*</span></label>
+                            <input class="form-control" type="text" name="apellido_paterno" placeholder="González">
+                        </div>
+
+                        <div class="col mb-4">
+                            <label class="color-prim mb-1">Apellido Materno<span class="color-sec">*</span></label>
+                            <input class="form-control" type="text" name="apellido_paterno" placeholder="Hernández">
+                        </div>
+
+                        <div class="col mb-4">
+                            <label class="color-prim mb-1">Correo Electrónico<span class="color-sec">*</span></label>
+                            <input class="form-control" type="email" name="correo" placeholder="correo@ejemplo.com">
+                        </div>
+
+                        <div class="col mb-4">
+                            <label class="color-prim mb-1">Contraseña<span class="color-sec">*</span></label>
+                            <div class="input-group">
+                                <input class="form-control" id="cont-1" type="password" name="contrasena" style="border-right-width: 0px;">
+                                <button class="btn btn-outline btn-contrasena" id="btn-cont-1"></button>
+                            </div>
+                        </div>
+
+                        <div class="col mb-4">
+                            <label class="color-prim mb-1">Confirmar Contraseña<span class="color-sec">*</span></label>
+                            <div class="input-group">
+                                <input class="form-control" id="cont-2" type="password" name="contrasena2" style="border-right-width: 0px;">
+                                <button class="btn btn-outline btn-contrasena" id="btn-cont-2"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="mt-3 fw-bold color-prim">La contraseña debe de tener al menos 8 posiciones. Debe contener una letra mayúscula, una minúscula, un número y un caracter especial como %&$!¡.</label>
+
+                <hr>
+
+                <div class="col-12">
+                    <h3 class="fw-normal color-sec">Roles de usuario</h3>
+
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 row-cols-md-4 fs-6 fw-normal mt-3">
+                        <label><input class="check me-2 mb-3" type="checkbox">Nuevo cliente</label>
+                        <label><input class="check me-2 mb-3" type="checkbox">Mostar clientes</label>
+                        <label><input class="check me-2 mb-3" type="checkbox">Registrar usuario</label>
+                        <label><input class="check me-2 mb-3" type="checkbox">Mostrar usuarios</label>
+                        <label><input class="check me-2 mb-3" type="checkbox">Consultar saldo</label>
+                        <label><input class="check me-2 mb-3" type="checkbox">Abonar saldo</label>
+                        <label><input class="check me-2 mb-3" type="checkbox">Debitar saldo</label>
+                        <label><input class="check me-2 mb-3" type="checkbox">Debitar saldo</label>
+                        <label><input class="check me-2 mb-3" type="checkbox">Depósitos</label>
+                        <label><input class="check me-2 mb-3" type="checkbox">Agregar rol</label>
+                    </div>
+                </div>
+
+                <hr>
+
+                <label class="color-prim mb-1"><span class="color-sec">*</span>Datos Obligatorios</label>
+
+                <div class="col-12 d-flex fs-">
+                    <button class="btn-sec px-3 py-2 fw-bold text-uppercase ms-auto">Cancelar</button>
+                    <button class="btn-prim px-3 py-2 fw-bold text-uppercase ms-4">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var pswCont1 = document.getElementById("cont-1");
+        var pswCont2 = document.getElementById("cont-2");
+        var btnCont1 = document.getElementById("btn-cont-1");
+        var btnCont2 = document.getElementById("btn-cont-2");
+
+        btnCont1.selected = false;
+        btnCont2.selected = false;
+
+        btnCont1.addEventListener('click', function() {
+            if (this.selected) { //Si se está mostrando la contraseña
+                pswCont1.type = "password"; //Ocultarla
+                this.style.backgroundImage = "url(assets/oculta.png)";
+            } else { //Si no se está mostrando la contraseña
+                pswCont1.type = "text"; //Mostrarla
+                this.style.backgroundImage = "url(assets/visible.png)";
+            }
+
+            this.selected = !this.selected;
+        });
+
+        btnCont2.addEventListener('click', function() {
+            if (this.selected) { //Si se está mostrando la contraseña
+                pswCont2.type = "password"; //Ocultarla
+                this.style.backgroundImage = "url(assets/oculta.png)";
+            } else { //Si no se está mostrando la contraseña
+                pswCont2.type = "text"; //Mostrarla
+                this.style.backgroundImage = "url(assets/visible.png)";
+            }
+
+            this.selected = !this.selected;
+        });
+    </script>
+</body>
+
+</html>
