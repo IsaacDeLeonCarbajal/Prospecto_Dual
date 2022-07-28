@@ -44,7 +44,7 @@
                             <label class="color-prim mb-1">Contraseña<span class="color-sec">*</span></label>
                             <div class="input-group">
                                 <input class="form-control" id="cont-1" type="password" name="contrasena" style="border-right-width: 0px;">
-                                <button class="btn btn-outline btn-contrasena" id="btn-cont-1"></button>
+                                <button class="btn btn-outline btn-contrasena" onclick="visibilidadContrasena(this, document.getElementById('cont-1'))"></button>
                             </div>
                         </div>
 
@@ -52,7 +52,7 @@
                             <label class="color-prim mb-1">Confirmar Contraseña<span class="color-sec">*</span></label>
                             <div class="input-group">
                                 <input class="form-control" id="cont-2" type="password" name="contrasena2" style="border-right-width: 0px;">
-                                <button class="btn btn-outline btn-contrasena" id="btn-cont-2"></button>
+                                <button class="btn btn-outline btn-contrasena" onclick="visibilidadContrasena(this, document.getElementById('cont-2'))"></button>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
 
                 <label class="color-prim mb-1"><span class="color-sec">*</span>Datos Obligatorios</label>
 
-                <div class="col-12 d-flex fs-">
+                <div class="col-12 d-flex">
                     <button class="btn-sec px-3 py-2 fw-bold text-uppercase ms-auto">Cancelar</button>
                     <button class="btn-prim px-3 py-2 fw-bold text-uppercase ms-4">Guardar</button>
                 </div>
@@ -92,37 +92,19 @@
     </div>
 
     <script>
-        var pswCont1 = document.getElementById("cont-1");
-        var pswCont2 = document.getElementById("cont-2");
-        var btnCont1 = document.getElementById("btn-cont-1");
-        var btnCont2 = document.getElementById("btn-cont-2");
+        var visibilidadContrasena = function (button, input) {
+            if (button.selected) { //Si se está mostrando la contraseña
+                input.type = "password"; //Ocultarla
+                button.style.backgroundImage = "url(assets/oculta.png)";
 
-        btnCont1.selected = false;
-        btnCont2.selected = false;
-
-        btnCont1.addEventListener('click', function() {
-            if (this.selected) { //Si se está mostrando la contraseña
-                pswCont1.type = "password"; //Ocultarla
-                this.style.backgroundImage = "url(assets/oculta.png)";
+                button.selected = false;
             } else { //Si no se está mostrando la contraseña
-                pswCont1.type = "text"; //Mostrarla
-                this.style.backgroundImage = "url(assets/visible.png)";
+                input.type = "text"; //Mostrarla
+                button.style.backgroundImage = "url(assets/visible.png)";
+
+                button.selected = true;
             }
-
-            this.selected = !this.selected;
-        });
-
-        btnCont2.addEventListener('click', function() {
-            if (this.selected) { //Si se está mostrando la contraseña
-                pswCont2.type = "password"; //Ocultarla
-                this.style.backgroundImage = "url(assets/oculta.png)";
-            } else { //Si no se está mostrando la contraseña
-                pswCont2.type = "text"; //Mostrarla
-                this.style.backgroundImage = "url(assets/visible.png)";
-            }
-
-            this.selected = !this.selected;
-        });
+        }
     </script>
 </body>
 
